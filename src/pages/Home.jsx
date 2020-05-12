@@ -9,10 +9,12 @@ import { connect } from "react-redux";
 class Home extends Component {
   render() {
     return (
-      <div>
+      <div className="homeBG">
         <Navbar />
         <Promo />
+        <hr />
         <Kategori />
+        <hr />
         <BestSeller />
         <Footer />
       </div>

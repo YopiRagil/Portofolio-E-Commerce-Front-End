@@ -5,23 +5,121 @@ import { connect } from "react-redux";
 const ProfileAsSeller = (props) => {
   return (
     <section>
-      <p>
-        <button
-          className="btn btn-primary"
-          type="button"
-          data-toggle="collapse"
-          data-target="#collapseExample"
-          aria-expanded="false"
-          aria-controls="collapseExample"
-        >
-          Button with data-target
-        </button>
-      </p>
-      <div className="collapse" id="collapseExample">
-        <div className="card card-body">
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
-          terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
-          labore wes anderson cred nesciunt sapiente ea proident.
+      <h3>Barang Dijual</h3>
+      <div style={{ padding: "20px" }}>
+        <div className="card-deck" style={{ paddingBottom: "30px" }}>
+          <div className="card cardBestSeller">
+            <img
+              className="card-img-top"
+              src={require("../media/hp.jpg")}
+              alt="Card image cap"
+              style={{ width: "100%", height: "60%" }}
+            />
+            <div className="card-body">
+              <p className="card-title kategoriName">Mobile Phone</p>
+            </div>
+          </div>
+          <div className="card cardBestSeller">
+            <img
+              className="card-img-top"
+              src={require("../media/hp.jpg")}
+              alt="Card image cap"
+              style={{ width: "100%", height: "60%" }}
+            />
+            <div className="card-body">
+              <p className="card-title kategoriName">Mobile Phone</p>
+            </div>
+          </div>
+          <div className="card cardBestSeller">
+            <img
+              className="card-img-top"
+              src={require("../media/laptop.jpg")}
+              alt="Card image cap"
+              style={{ width: "100%", height: "60%" }}
+            />
+            <div className="card-body">
+              <p className="card-title kategoriName">Laptop</p>
+            </div>
+          </div>
+          <div className="card cardBestSeller">
+            <img
+              className="card-img-top"
+              src={require("../media/speaker.jpg")}
+              alt="Card image cap"
+              style={{ width: "100%", height: "60%" }}
+            />
+            <div className="card-body">
+              <p className="card-title kategoriName">Speaker</p>
+            </div>
+          </div>
+          <div className="card cardBestSeller">
+            <img
+              className="card-img-top"
+              src={require("../media/logo.png")}
+              alt="Card image cap"
+              style={{ width: "100%", height: "60%" }}
+            />
+            <div className="card-body">
+              <p className="card-title kategoriName">Vapour</p>
+            </div>
+          </div>
+        </div>
+        <div className="card-deck">
+          <div className="card cardBestSeller">
+            <img
+              className="card-img-top"
+              src={require("../media/hp.jpg")}
+              alt="Card image cap"
+              style={{ width: "100%", height: "60%" }}
+            />
+            <div className="card-body">
+              <p className="card-title kategoriName">Games</p>
+            </div>
+          </div>
+          <div className="card cardBestSeller">
+            <img
+              className="card-img-top"
+              src={require("../media/hp.jpg")}
+              alt="Card image cap"
+              style={{ width: "100%", height: "60%" }}
+            />
+            <div className="card-body">
+              <p className="card-title kategoriName">Mobile Phone</p>
+            </div>
+          </div>
+          <div className="card cardBestSeller">
+            <img
+              className="card-img-top"
+              src={require("../media/laptop.jpg")}
+              alt="Card image cap"
+              style={{ width: "100%", height: "60%" }}
+            />
+            <div className="card-body">
+              <p className="card-title kategoriName">Kipas/AC</p>
+            </div>
+          </div>
+          <div className="card cardBestSeller">
+            <img
+              className="card-img-top"
+              src={require("../media/speaker.jpg")}
+              alt="Card image cap"
+              style={{ width: "100%", height: "60%" }}
+            />
+            <div className="card-body">
+              <p className="card-title kategoriName">Elektronik Dapur</p>
+            </div>
+          </div>
+          <div className="card cardBestSeller">
+            <img
+              className="card-img-top"
+              src={require("../media/tv.jpg")}
+              alt="Card image cap"
+              style={{ width: "100%", height: "60%" }}
+            />
+            <div className="card-body">
+              <p className="card-title kategoriName">Lampu</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

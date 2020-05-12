@@ -7,3 +7,18 @@ footer {
 .kategoriName {
   text-align: center;
 }
+.cardBestSeller {
+  box-shadow: 2px 2px 10px grey;
+  background-color: #86cad4;
+}
+.homeBG {
+  background-color: rgb(196, 196, 196);
+}
+.kategoriTool {
+  /* background-color: rgb(196, 196, 196); */
+  box-shadow: 2px 2px 10px grey;
+  padding: 0;
+}
+.bgKategori {
+  box-shadow: 2px 2px 10px grey;
+}

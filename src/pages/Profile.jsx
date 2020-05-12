@@ -13,15 +13,14 @@ class Profile extends Component {
     // console.log("response", this.props);
   };
   render() {
-    console.log("cek profile");
+    console.log("cek profile", this.props);
     const isLoading = this.props.isLoading;
     return (
       <div>
-        {this.props.profileData.isLogin ? (
+        {this.props.loginInfo.isLogin ? (
           <div>
             <Navbar />
-            <ProfileBio />
-            <ProfileAsBuyer />
+            <ProfileBio {...this.props} />
             <Footer />
           </div>
         ) : (
@@ -41,7 +40,7 @@ const mapStateToProps = (state) => {
   return {
     profileData: state.userProfile.profileData,
     isLoading: state.userProfile.isLoading,
-    token: state.user.token,
+    loginInfo: state.user,
   };
 };
 const mapDispatchToProps = {

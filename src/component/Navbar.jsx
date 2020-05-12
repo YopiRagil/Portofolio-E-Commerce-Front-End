@@ -14,9 +14,9 @@ const Navbar = (props, postSignout) => {
   //   };
   return (
     <navbar className="navbar navbar-expand-lg navbar-light shadow p-3 mb-5 bg-white rounded">
-      <a className="navbar-brand" href="#">
+      <Link className="navbar-brand" to="/">
         <img src={require("../media/logo.png")} style={{ width: "90px" }} />
-      </a>
+      </Link>
       <button
         className="navbar-toggler"
         type="button"
@@ -32,12 +32,12 @@ const Navbar = (props, postSignout) => {
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item active">
-            <a className="nav-link" href="#">
+            <Link className="nav-link" to="/">
               Home <span className="sr-only">(current)</span>
-            </a>
+            </Link>
           </li>
           <li className="nav-item dropdown">
-            <a
+            <Link
               className="nav-link dropdown-toggle"
               href="#"
               id="navbarDropdown"
@@ -47,28 +47,28 @@ const Navbar = (props, postSignout) => {
               aria-expanded="false"
             >
               Kategori
-            </a>
+            </Link>
             <div
               className="dropdown-menu bg-secondary"
               aria-labelledby="navbarDropdown"
             >
-              <a className="dropdown-item text-light" href="#">
+              <Link className="dropdown-item text-light" href="#">
                 Action
-              </a>
-              <a className="dropdown-item text-light" href="#">
+              </Link>
+              <Link className="dropdown-item text-light" href="#">
                 Another action
-              </a>
+              </Link>
               <div className="dropdown-divider"></div>
-              <a className="dropdown-item text-light" href="#">
+              <Link className="dropdown-item text-light" href="#">
                 Something else here
-              </a>
+              </Link>
             </div>
           </li>
           <li>
             <li className="nav-item active">
-              <a className="nav-link" href="#">
+              <Link className="nav-link" href="#">
                 Diskon <span className="sr-only">(current)</span>
-              </a>
+              </Link>
             </li>
           </li>
         </ul>
@@ -83,18 +83,20 @@ const Navbar = (props, postSignout) => {
             Search
           </button>
         </form>
-        <button
+        <Link
           className="btn bg-info text-white btn-outline-info my-2 my-sm-0 mr-3"
           type="submit"
+          to="/signin"
         >
           Signin
-        </button>
-        <button
+        </Link>
+        <Link
           className="btn bg-info text-white btn-outline-info my-2 my-sm-0 mr-4"
           type="submit"
+          to="/register"
         >
           Register
-        </button>
+        </Link>
       </div>
     </navbar>
   );
