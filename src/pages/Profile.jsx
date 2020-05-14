@@ -6,10 +6,12 @@ import ProfileBio from "../component/ProfileBio";
 import { connect } from "react-redux";
 import ProfileAsBuyer from "../component/ProfileAsBuyer";
 import { getProfileInformation } from "../store/actions/profileAction";
+import { getProdukUser } from "../store/actions/produkAction";
 
 class Profile extends Component {
   componentDidMount = async () => {
     this.props.getProfileInformation();
+    this.props.getProdukUser();
   };
   render() {
     // console.log("response profile", this.props);
@@ -41,9 +43,12 @@ const mapStateToProps = (state) => {
     profileData: state.userProfile.profileData,
     isLoading: state.userProfile.isLoading,
     loginInfo: state.user,
+    produkData: state.produk.produkData,
+    isLoading: state.produk.isLoading,
   };
 };
 const mapDispatchToProps = {
   getProfileInformation,
+  getProdukUser,
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);
