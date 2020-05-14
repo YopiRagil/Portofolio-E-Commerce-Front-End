@@ -1,12 +1,14 @@
 import axios from "axios"
 const signInUrl = "http://0.0.0.0:5050/auth"
 
-export const doLogin = (props) => {
+export const doLogin = () => {
     // console.log("cek masuk");
     return async (dispatch, getState) => {
+        console.log("cek storage", localStorage)
         const username = getState().user.name;
         const password = getState().user.password;
-
+        localStorage.clear()
+        localStorage.setItem("username", username)
         await axios
             .get(signInUrl, {
                 params: {
@@ -14,14 +16,16 @@ export const doLogin = (props) => {
                     password: password
                 }
             })
-            // console.log("cek masuk axious")
+
             .then(async (response) => {
-                // console.log("masuk api", response)
-                dispatch({ type: "SUCCESS_LOGIN", payload: response.data });
+                console.log("masuk api", response.data.token)
+                await dispatch({ type: "SUCCESS_LOGIN", payload: response.data });
+                // localStorage.clear()
+                // localStorage.data.removeItem("token")
                 localStorage.setItem("token", response.data.token)
+                console.log("cek storage2", localStorage)
             })
             .catch(function (error) {
-                // console.log(error)
             });
     };
 };
@@ -32,9 +36,9 @@ export const changeInputUser = (el) => {
         payload: el,
     };
 };
-export const doLogout = (el) => {
+export const doLogout = () => {
+    localStorage.clear()
     return {
         type: "LOG_OUT",
-        payload: el,
     };
 };

@@ -2,7 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-const FormRegister = (props) => {
+const FormRegister = (props, postRegister) => {
+  postRegister = async () => {
+    await props.registerClient();
+    const isLogin = props.isLogin;
+    console.log("regis1", isLogin);
+    if (isLogin) {
+      props.history.push("/");
+    }
+  };
   return (
     <section>
       <div className="container">
@@ -18,26 +26,42 @@ const FormRegister = (props) => {
                   >
                     <label for="inputUserName">User Name</label>
                     <input
-                      type="userName"
+                      type="text"
                       id="inputUserName"
                       className="form-control"
                       placeholder="User Name"
-                      required
-                      autofocus
+                      name="userName"
+                      onChange={(el) => props.changeInput(el)}
                     />
                   </div>
+
+                  <div
+                    className="form-label-group"
+                    style={{ paddingBottom: "30px" }}
+                  >
+                    <label for="inputName">Name</label>
+                    <input
+                      type="text"
+                      id="inputName"
+                      className="form-control"
+                      placeholder="name"
+                      name="name"
+                      onChange={(el) => props.changeInput(el)}
+                    />
+                  </div>
+
                   <div
                     className="form-label-group"
                     style={{ paddingBottom: "30px" }}
                   >
                     <label for="inputEmail">Email address</label>
                     <input
-                      type="email"
+                      type="text"
                       id="inputEmail"
                       className="form-control"
                       placeholder="Email address"
-                      required
-                      autofocus
+                      name="email"
+                      onChange={(el) => props.changeInput(el)}
                     />
                   </div>
 
@@ -48,10 +72,11 @@ const FormRegister = (props) => {
                     <label for="inputPassword">Password</label>
                     <input
                       type="password"
+                      name="password"
                       id="inputPassword"
                       className="form-control"
                       placeholder="Password"
-                      required
+                      onChange={(el) => props.changeInput(el)}
                     />
                   </div>
                   <div
@@ -60,13 +85,45 @@ const FormRegister = (props) => {
                   >
                     <label for="inputPassword">Confirm Password</label>
                     <input
-                      type="confirmPassword"
+                      type="Password"
+                      name="confirmPassword"
                       id="inputConfirmPassword"
                       className="form-control"
-                      placeholder="confirmPassword"
-                      required
+                      placeholder="Konfirmasi Password"
+                      onChange={(el) => props.changeInput(el)}
                     />
                   </div>
+
+                  <div
+                    className="form-label-group"
+                    style={{ paddingBottom: "30px" }}
+                  >
+                    <label for="inputNoTlp">Nomor Telephone</label>
+                    <input
+                      type="text"
+                      id="inputNoTlp"
+                      className="form-control"
+                      placeholder="Nomor telephone"
+                      name="noTlp"
+                      onChange={(el) => props.changeInput(el)}
+                    />
+                  </div>
+
+                  <div
+                    className="form-label-group"
+                    style={{ paddingBottom: "30px" }}
+                  >
+                    <label for="inputAlamat">Alamat</label>
+                    <input
+                      type="text"
+                      id="inputAlamat"
+                      className="form-control"
+                      placeholder="Alamat"
+                      name="alamat"
+                      onChange={(el) => props.changeInput(el)}
+                    />
+                  </div>
+
                   <div
                     className="custom-control custom-checkbox mb-3"
                     style={{ paddingBottom: "50px" }}
@@ -83,8 +140,9 @@ const FormRegister = (props) => {
                   <button
                     className="btn btn-lg btn-primary btn-block text-uppercase"
                     type="submit"
+                    onClick={() => postRegister()}
                   >
-                    Sign in
+                    DAFTAR
                   </button>
                 </form>
               </div>

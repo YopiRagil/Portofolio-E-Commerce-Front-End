@@ -28,11 +28,11 @@ const FormSignIn = (props, postLogin) => {
                     className="form-label-group"
                     style={{ paddingBottom: "30px" }}
                   >
-                    <label for="inputEmail">User Name</label>
+                    <label for="userName">User Name</label>
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="Email address"
+                      placeholder="User Name"
                       name="name"
                       onChange={(el) => props.changeInput(el)}
                     />

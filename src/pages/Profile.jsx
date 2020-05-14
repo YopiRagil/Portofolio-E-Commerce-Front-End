@@ -10,10 +10,10 @@ import { getProfileInformation } from "../store/actions/profileAction";
 class Profile extends Component {
   componentDidMount = async () => {
     this.props.getProfileInformation();
-    // console.log("response", this.props);
   };
   render() {
-    console.log("cek profile", this.props);
+    // console.log("response profile", this.props);
+    console.log("cek profile", this.props.profileData);
     const isLoading = this.props.isLoading;
     return (
       <div>

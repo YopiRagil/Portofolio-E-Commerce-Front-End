@@ -4,7 +4,7 @@ import Home from "../pages/Home";
 import ProdukList from "../pages/ProdukList";
 import Profile from "../pages/Profile";
 import SignIn from "../pages/SignIn";
-import Register from "../pages/Resgister";
+import Register from "../pages/Register";
 import { Provider } from "react-redux";
 import store from "../store";
 

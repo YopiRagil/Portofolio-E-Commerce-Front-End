@@ -8,7 +8,7 @@ const ProfileBio = (props) => {
   return (
     <section className="container-fluid">
       <div style={{ padding: "30px" }}>
-        <h3 style={{ paddingBottom: "20px" }}>{props.name}</h3>
+        <h3 style={{ paddingBottom: "20px" }}>{props.profileData.name}</h3>
         <div className="row">
           <div className="col-lg-3">
             <img
@@ -16,29 +16,29 @@ const ProfileBio = (props) => {
               style={{ width: "250px", padding: "0 20px 20px 0" }}
             />
           </div>
-          <div class=" col-lg-7">
+          <div className=" col-lg-7">
             <h5>Profile</h5>
-            <table class="table table-borderless">
+            <table className="table table-borderless">
               <tbody>
                 <tr>
                   <th scope="row">Username</th>
-                  <td>: {props.username}</td>
+                  <td>: {localStorage.getItem("username")}</td>
                 </tr>
                 <tr>
                   <th scope="row">Nama</th>
-                  <td>: {props.name}</td>
+                  <td>: {props.profileData.name}</td>
                 </tr>
                 <tr>
                   <th scope="row">Alamat</th>
-                  <td>: {props.alamat}</td>
+                  <td>: {props.profileData.alamat}</td>
                 </tr>
                 <tr>
                   <th scope="row">Email</th>
-                  <td>: {props.email}</td>
+                  <td>: {props.profileData.email}</td>
                 </tr>
                 <tr>
                   <th scope="row">Contact</th>
-                  <td>: {props.no_hp}</td>
+                  <td>: {props.profileData.no_hp}</td>
                 </tr>
               </tbody>
             </table>
@@ -46,9 +46,9 @@ const ProfileBio = (props) => {
         </div>
       </div>
       <nav>
-        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <div className="nav nav-tabs" id="nav-tab" role="tablist">
           <a
-            class="nav-item nav-link active"
+            className="nav-item nav-link active"
             id="nav-home-tab"
             data-toggle="tab"
             href="#nav-home"
@@ -59,7 +59,7 @@ const ProfileBio = (props) => {
             Barang dijual
           </a>
           <a
-            class="nav-item nav-link"
+            className="nav-item nav-link"
             id="nav-profile-tab"
             data-toggle="tab"
             href="#nav-profile"
@@ -72,12 +72,12 @@ const ProfileBio = (props) => {
         </div>
       </nav>
       <div
-        class="tab-content"
+        className="tab-content"
         id="nav-tabContent"
         style={{ paddingTop: "20px" }}
       >
         <div
-          class="tab-pane fade show active"
+          className="tab-pane fade show active"
           id="nav-home"
           role="tabpanel"
           aria-labelledby="nav-home-tab"
@@ -86,7 +86,7 @@ const ProfileBio = (props) => {
           <ProfileAsSeller />
         </div>
         <div
-          class="tab-pane fade"
+          className="tab-pane fade"
           id="nav-profile"
           role="tabpanel"
           aria-labelledby="nav-profile-tab"

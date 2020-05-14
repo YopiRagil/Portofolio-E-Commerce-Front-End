@@ -1,17 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ToolProfil from "./NavbarProfileTools";
 import { connect } from "react-redux";
 
 const Navbar = (props, postSignout) => {
-  //   postSignout = async () => {
-  //     console.log("cek masuk logout");
-  //     await props.doLogout();
-  //     const isLogin = props.logout;
-  //     console.log("cek islogin", isLogin);
-  //     if (!isLogin) {
-  //       props.history.push("/signin");
-  //     }
-  //   };
+  postSignout = async () => {
+    console.log("cek masuk logout");
+    await props.doLogout();
+    const isLogin = props.logout;
+    console.log("cek islogin", isLogin);
+    if (!isLogin) {
+      props.history.push("/signin");
+    }
+  };
   return (
     <navbar className="navbar navbar-expand-lg navbar-light shadow p-3 mb-5 bg-white rounded">
       <Link className="navbar-brand" to="/">
@@ -53,10 +54,10 @@ const Navbar = (props, postSignout) => {
               aria-labelledby="navbarDropdown"
             >
               <Link className="dropdown-item text-light" href="#">
-                Action
+                Hand Phone
               </Link>
               <Link className="dropdown-item text-light" href="#">
-                Another action
+                Laptop
               </Link>
               <div className="dropdown-divider"></div>
               <Link className="dropdown-item text-light" href="#">
@@ -83,20 +84,7 @@ const Navbar = (props, postSignout) => {
             Search
           </button>
         </form>
-        <Link
-          className="btn bg-info text-white btn-outline-info my-2 my-sm-0 mr-3"
-          type="submit"
-          to="/signin"
-        >
-          Signin
-        </Link>
-        <Link
-          className="btn bg-info text-white btn-outline-info my-2 my-sm-0 mr-4"
-          type="submit"
-          to="/register"
-        >
-          Register
-        </Link>
+        <ToolProfil {...props} />
       </div>
     </navbar>
   );
