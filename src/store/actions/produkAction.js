@@ -20,3 +20,18 @@ export const getProdukAll = () => {
     }
 }
 
+export const getProdukUser = () => {
+    console.log("cek 1")
+    return async (dispatch) => {
+        await dispatch({
+            type: "LOADING_PRODUK"
+        });
+        console.log("cek 2")
+        const response = await axios.get(produkUserUrl);
+        dispatch({
+            type: "GET_PRODUK_ALL",
+            payload: response.data
+        })
+        console.log("cek produk", response.data)
+    }
+}

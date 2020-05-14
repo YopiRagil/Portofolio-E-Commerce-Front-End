@@ -1,6 +1,7 @@
 import React from "react";
 import ProfileAsBuyer from "./ProfileAsBuyer";
 import ProfileAsSeller from "./ProfileAsSeller";
+import BestSeller from "./HomeBestSeller";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -82,8 +83,20 @@ const ProfileBio = (props) => {
           role="tabpanel"
           aria-labelledby="nav-home-tab"
         >
-          {" "}
-          <ProfileAsSeller />
+          <div className="container-fluid">
+            <div className="row m-5">
+              {props.produkData.map((item, key) => (
+                <>
+                  <BestSeller
+                    produkName={item.nama_produk}
+                    gambar={item.gambar}
+                    harga={item.harga}
+                    stock={item.stock}
+                  />
+                </>
+              ))}
+            </div>
+          </div>
         </div>
         <div
           className="tab-pane fade"

@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import axios from "axios";
-import { withRouter } from "react-router-dom";
 import Navbar from "../component/Navbar";
 import Footer from "../component/Footer";
 import FormRegister from "../component/RegisterForm";
@@ -12,10 +10,10 @@ import {
 
 class Register extends Component {
   render() {
-    console.log("regis2", this.props);
     return (
       <div>
         <Navbar />
+        {console.log("regis2", this.props)}
         <FormRegister {...this.props} />
         <Footer />
       </div>

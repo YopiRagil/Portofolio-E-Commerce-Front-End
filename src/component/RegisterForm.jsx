@@ -1,12 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
 
 const FormRegister = (props, postRegister) => {
+  console.log("regis3");
   postRegister = async () => {
     await props.registerClient();
     const isLogin = props.isLogin;
-    console.log("regis1", isLogin);
+    console.log("regis1");
     if (isLogin) {
       props.history.push("/");
     }
@@ -138,9 +137,9 @@ const FormRegister = (props, postRegister) => {
                     </label>
                   </div>
                   <button
+                    onClick={() => postRegister()}
                     className="btn btn-lg btn-primary btn-block text-uppercase"
                     type="submit"
-                    onClick={() => postRegister()}
                   >
                     DAFTAR
                   </button>
