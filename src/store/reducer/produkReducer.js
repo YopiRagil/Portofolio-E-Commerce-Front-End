@@ -32,6 +32,11 @@ export default function produkReducer(produkState = initialState, action) {
                 produkDataTipe: action.payload,
                 isLoading: false
             }
+        case "CHANGE_INPUT_PRODUK":
+            return {
+                ...produkState,
+                [action.payload.target.name]: action.payload.target.value,
+            };
         default:
             return produkState
     }

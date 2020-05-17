@@ -70,6 +70,7 @@ const ToolProfil = (props) => {
                 </p>
                 <Link
                   onClick={logOut}
+                  to="/signin"
                   className="dropdown-item"
                   style={{ textAlign: "center", color: "white" }}
                 >

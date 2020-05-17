@@ -82,6 +82,15 @@ const ProfileBio = (props) => {
           role="tabpanel"
           aria-labelledby="nav-home-tab"
         >
+          <Link className="row ml-2" to="/addproduk">
+            <div>
+              <img
+                src={require("../media/addproduk.png")}
+                style={{ width: "30px" }}
+              />
+            </div>
+            <p>Tambah produk</p>
+          </Link>
           <div className="container-fluid">
             <div className="row m-5">
               {props.produkUser.map((item, key) => (
