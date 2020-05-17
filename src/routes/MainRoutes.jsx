@@ -17,8 +17,8 @@ const MainRoutes = () => {
           <Route exact path="/signin" component={SignIn} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/profile" component={Profile} />
-          <Route exact path="/produk-list" component={ProdukList} />
-          <Route exact path="/produk-list/:category" component={ProdukList} />
+          <Route exact path="/produk" component={ProdukList} />
+          <Route exact path="/produk/:category" component={ProdukList} />
         </Switch>
       </BrowserRouter>
     </Provider>

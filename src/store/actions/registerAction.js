@@ -1,42 +1,40 @@
 import axios from "axios"
 const clientUrl = "http://0.0.0.0:5050/client"
-const usertUrl = "http://0.0.0.0:5050/user"
+const userUrl = "http://0.0.0.0:5050/user"
 const signInUrl = "http://0.0.0.0:5050/auth"
 
 
 export const registerClient = () => {
-    console.log("cek masuk");
     return async (dispatch, getState) => {
+        alert("sdh msuk tws regis1")
         const username = getState().register.userName;
-        const name = getState().register.name;
-        const email = getState().register.email;
         const password = getState().register.password;
         const confirmPassword = getState().register.confirmPassword;
+        const name = getState().register.name;
+        const email = getState().register.email;
         const noTlp = getState().register.noTlp;
         const alamat = getState().register.alamat;
-
+        const bodyRequestClient = {
+            username: username,
+            password: password,
+            status: "user"
+        }
+        const bodyRequestUser = {
+            name: name,
+            email: email,
+            no_hp: noTlp,
+            alamat: alamat
+        }
         localStorage.clear()
         localStorage.setItem("username", username)
         localStorage.setItem("password", password)
         await axios
-            .post(clientUrl, {
-                headers: {},
-                data: {
-                    username: username,
-                    password: password,
-                }
+            .post(clientUrl, bodyRequestClient, {
+                headers: {
+                    "Content-Type": "application/json; charset=utf-8",
+                },
             })
-
-        await axios
-            .post(usertUrl, {
-                headers: {},
-                data: {
-                    name: name,
-                    email: email,
-                    noTlp: noTlp,
-                    alamat: alamat
-                }
-            })
+        alert("Create account success")
 
         await axios
             .get(signInUrl, {
@@ -46,13 +44,22 @@ export const registerClient = () => {
                 }
             })
             .then(async (response) => {
-                // console.log("masuk api", response.data.token)
                 await dispatch({ type: "SUCCESS_SIGNIN", payload: response.data });
                 localStorage.setItem("token", response.data.token)
                 console.log("cek storage2", localStorage)
             })
             .catch(function (error) {
             });
+        const token = localStorage.getItem('token')
+        const req = await axios
+            .post(userUrl, bodyRequestUser, {
+                headers: {
+                    Authorization: 'Bearer ' + token,
+                    // "Content-Type": "applicaton/json; Chart=utf-8"
+                },
+            })
+        console.log("req regis", req)
+
     };
 };
 

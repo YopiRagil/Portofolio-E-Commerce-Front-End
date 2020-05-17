@@ -1,11 +1,12 @@
 import React from "react";
 
 const FormRegister = (props, postRegister) => {
-  console.log("regis3");
+  // console.log("regis3");
   postRegister = async () => {
     await props.registerClient();
     const isLogin = props.isLogin;
-    console.log("regis1");
+    props.history.push("/profile");
+    // console.log("regis1");
     if (isLogin) {
       props.history.push("/");
     }
@@ -18,7 +19,11 @@ const FormRegister = (props, postRegister) => {
             <div className="card card-signin my-5">
               <div className="card-body">
                 <h5 className="card-title text-center">Register</h5>
-                <form className="form-signin" style={{ paddingBottom: "70px" }}>
+                <form
+                  className="form-signin"
+                  method="post"
+                  style={{ paddingBottom: "70px" }}
+                >
                   <div
                     className="form-label-group"
                     style={{ paddingBottom: "30px" }}
@@ -33,7 +38,34 @@ const FormRegister = (props, postRegister) => {
                       onChange={(el) => props.changeInput(el)}
                     />
                   </div>
-
+                  <div
+                    className="form-label-group"
+                    style={{ paddingBottom: "30px" }}
+                  >
+                    <label for="inputPassword">Password</label>
+                    <input
+                      type="password"
+                      name="password"
+                      id="inputPassword"
+                      className="form-control"
+                      placeholder="Password"
+                      onChange={(el) => props.changeInput(el)}
+                    />
+                  </div>
+                  <div
+                    className="form-label-group"
+                    style={{ paddingBottom: "30px" }}
+                  >
+                    <label for="inputPassword">Confirm Password</label>
+                    <input
+                      type="Password"
+                      name="confirmPassword"
+                      id="inputConfirmPassword"
+                      className="form-control"
+                      placeholder="Konfirmasi Password"
+                      onChange={(el) => props.changeInput(el)}
+                    />
+                  </div>
                   <div
                     className="form-label-group"
                     style={{ paddingBottom: "30px" }}
@@ -60,35 +92,6 @@ const FormRegister = (props, postRegister) => {
                       className="form-control"
                       placeholder="Email address"
                       name="email"
-                      onChange={(el) => props.changeInput(el)}
-                    />
-                  </div>
-
-                  <div
-                    className="form-label-group"
-                    style={{ paddingBottom: "30px" }}
-                  >
-                    <label for="inputPassword">Password</label>
-                    <input
-                      type="password"
-                      name="password"
-                      id="inputPassword"
-                      className="form-control"
-                      placeholder="Password"
-                      onChange={(el) => props.changeInput(el)}
-                    />
-                  </div>
-                  <div
-                    className="form-label-group"
-                    style={{ paddingBottom: "30px" }}
-                  >
-                    <label for="inputPassword">Confirm Password</label>
-                    <input
-                      type="Password"
-                      name="confirmPassword"
-                      id="inputConfirmPassword"
-                      className="form-control"
-                      placeholder="Konfirmasi Password"
                       onChange={(el) => props.changeInput(el)}
                     />
                   </div>
@@ -136,10 +139,23 @@ const FormRegister = (props, postRegister) => {
                       Apakah anda yakin data yang anda masukkan sudah benar?
                     </label>
                   </div>
+                  <div
+                    className="custom-control custom-checkbox mb-3"
+                    style={{ paddingBottom: "50px" }}
+                  >
+                    <input
+                      type="checkbox"
+                      className="custom-control-input"
+                      id="customCheck1"
+                    />
+                    <label className="custom-control-label" for="customCheck1">
+                      Apakah anda yakin data yang anda masukkan sudah benar?
+                    </label>
+                  </div>
                   <button
                     onClick={() => postRegister()}
                     className="btn btn-lg btn-primary btn-block text-uppercase"
-                    type="submit"
+                    type="button"
                   >
                     DAFTAR
                   </button>

@@ -6,7 +6,7 @@ const FormSignIn = (props, postLogin) => {
   postLogin = async () => {
     await props.doLogin();
     const isLogin = props.isLogin;
-    console.log(isLogin);
+    console.log("cek profileinfo", props);
     if (isLogin) {
       props.history.push("/profile");
     }

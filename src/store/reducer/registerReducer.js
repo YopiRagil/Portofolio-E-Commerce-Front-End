@@ -10,7 +10,7 @@ export default function registerReducer(state = initialState, action) {
         case "CHANGE_INPUT_REGISTER":
             return {
                 ...state,
-                [action.payload.target.userName]: action.payload.target.value,
+                [action.payload.target.name]: action.payload.target.value,
             };
         case "SUCCESS_SIGNIN":
             return {

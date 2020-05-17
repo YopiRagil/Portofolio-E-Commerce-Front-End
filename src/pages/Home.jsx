@@ -3,7 +3,7 @@ import Navbar from "../component/Navbar";
 import Promo from "../component/HomePromo";
 import Footer from "../component/Footer";
 import Kategori from "../component/HomeKategori";
-import BestSeller from "../component/HomeBestSeller";
+import Produks from "../component/Produks";
 import { getProdukAll } from "../store/actions/produkAction";
 import { connect } from "react-redux";
 
@@ -16,17 +16,17 @@ class Home extends Component {
     console.log("masuk", this.props.produkData);
     return (
       <div className="homeBG">
-        <Navbar />
-        <Promo />
+        <Navbar {...this.props} />
+        <Promo {...this.props} />
         <hr />
-        <Kategori />
+        <Kategori {...this.props} />
         <hr />
         <h5 style={{ textAlign: "center" }}> Best Seller</h5>
         <div className="container-fluid">
           <div className="row m-5">
             {this.props.produkData.map((item, key) => (
               <>
-                <BestSeller
+                <Produks
                   produkName={item.nama_produk}
                   gambar={item.gambar}
                   harga={item.harga}
