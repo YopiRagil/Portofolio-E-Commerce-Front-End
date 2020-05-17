@@ -3,14 +3,22 @@ import { Link } from "react-router-dom";
 import ToolProfil from "./NavbarProfileTools";
 import { connect } from "react-redux";
 
-const Navbar = (props, postSignout) => {
+const Navbar = (props, postSignout, changeRouter) => {
+  // console.log("cek masuk logout", props);
   postSignout = async () => {
-    console.log("cek masuk logout");
     await props.doLogout();
     const isLogin = props.logout;
     console.log("cek islogin", isLogin);
     if (!isLogin) {
       props.history.push("/signin");
+    }
+  };
+  changeRouter = async (category) => {
+    console.log("props list", props);
+    if (props.inputCategory) {
+      await props.inputCategory(category);
+    } else {
+      props.history.replace("produk/" + category);
     }
   };
   return (
@@ -53,14 +61,23 @@ const Navbar = (props, postSignout) => {
               className="dropdown-menu bg-secondary"
               aria-labelledby="navbarDropdown"
             >
-              <Link className="dropdown-item text-light" href="#">
+              <Link
+                to="/produk/1"
+                value={1}
+                className="dropdown-item text-light"
+                onClick={() => changeRouter(1)}
+              >
                 Hand Phone
               </Link>
-              <Link className="dropdown-item text-light" href="#">
+              <Link
+                to="/produk/2"
+                className="dropdown-item text-light"
+                onClick={() => changeRouter(2)}
+              >
                 Laptop
               </Link>
               <div className="dropdown-divider"></div>
-              <Link className="dropdown-item text-light" href="#">
+              <Link to="/produk" className="dropdown-item text-light" href="#">
                 Something else here
               </Link>
             </div>

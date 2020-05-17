@@ -4,7 +4,6 @@ import Navbar from "../component/Navbar";
 import Footer from "../component/Footer";
 import ProfileBio from "../component/ProfileBio";
 import { connect } from "react-redux";
-import ProfileAsBuyer from "../component/ProfileAsBuyer";
 import { getProfileInformation } from "../store/actions/profileAction";
 import { getProdukUser } from "../store/actions/produkAction";
 
@@ -15,13 +14,13 @@ class Profile extends Component {
   };
   render() {
     // console.log("response profile", this.props);
-    console.log("cek profile", this.props.profileData);
+    // console.log("cek profile", this.props.profileData);
     const isLoading = this.props.isLoading;
     return (
       <div>
         {this.props.loginInfo.isLogin ? (
           <div>
-            <Navbar />
+            <Navbar {...this.props} />
             <ProfileBio {...this.props} />
             <Footer />
           </div>
@@ -43,7 +42,7 @@ const mapStateToProps = (state) => {
     profileData: state.userProfile.profileData,
     isLoading: state.userProfile.isLoading,
     loginInfo: state.user,
-    produkData: state.produk.produkData,
+    produkUser: state.produk.produkUser,
     isLoading: state.produk.isLoading,
   };
 };

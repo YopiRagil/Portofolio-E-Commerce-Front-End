@@ -1,7 +1,6 @@
 import React from "react";
 import ProfileAsBuyer from "./ProfileAsBuyer";
-import ProfileAsSeller from "./ProfileAsSeller";
-import BestSeller from "./HomeBestSeller";
+import Produks from "./Produks";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -85,9 +84,9 @@ const ProfileBio = (props) => {
         >
           <div className="container-fluid">
             <div className="row m-5">
-              {props.produkData.map((item, key) => (
+              {props.produkUser.map((item, key) => (
                 <>
-                  <BestSeller
+                  <Produks
                     produkName={item.nama_produk}
                     gambar={item.gambar}
                     harga={item.harga}
