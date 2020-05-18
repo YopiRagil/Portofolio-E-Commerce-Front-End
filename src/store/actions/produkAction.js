@@ -60,7 +60,6 @@ export const addProduk = () => {
         await dispatch({
             type: "LOADING_PRODUK"
         });
-        alert("sdh msuk addProduk")
         const tipeId = getState().produk.tipe;
         const namaProduk = getState().produk.namaProduk;
         const harga = getState().produk.harga;
@@ -83,16 +82,39 @@ export const addProduk = () => {
         }
         const token = localStorage.getItem('token')
         alert("sdh msuk addProduk2")
-        console.log("body req", bodyRequestProduk)
-        const request = await axios
-            .post(produkPostUrl, bodyRequestProduk, {
+        // console.log("body req", bodyRequestProduk)
+        // const request = await axios
+        //     .post(produkPostUrl, bodyRequestProduk, {
+        //         headers: {
+        //             Authorization: 'Bearer ' + token,
+        //             // "Content-Type": "applicaton/json; Chart=utf-8",
+        //             // "Content-Length": "<calculated when request is sent>; Chart=utf-8"
+        //         },
+        //     })
+
+
+        const myJSON = JSON.stringify(bodyRequestProduk);
+
+        await axios
+            .post("http://localhost:5000/produk", myJSON, {
                 headers: {
-                    Authorization: 'Bearer ' + token,
-                    "Content-Type": "applicaton/json; Chart=utf-8",
-                    // "Content-Length": "<calculated when request is sent>; Chart=utf-8"
-                },
+                    'Authorization': 'Bearer ' + token,
+                    // "Content-Type": "application/json; charset=utf-8",
+                    // Accept: "application/json; charset=utf-8",
+                }
             })
-        console.log("req regis", request)
+            .then(async (response) => {
+                if (response.status === 200) {
+                    dispatch({
+                        type: "GET_PRODUK_ALL",
+                        payload: response.data
+                    });
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        // console.log("req regis", request)
 
     };
 };

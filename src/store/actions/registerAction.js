@@ -55,8 +55,6 @@ export const registerClient = () => {
             .post(userUrl, bodyRequestUser, {
                 headers: {
                     Authorization: 'Bearer ' + token,
-                    "Content-Type": "applicaton/json; Chart=utf-8",
-                    "Content-Length": "<calculated when request is sent>; Chart=utf-8"
                 },
             })
         console.log("req regis", req)
