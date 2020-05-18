@@ -96,7 +96,7 @@ export const addProduk = () => {
         const myJSON = JSON.stringify(bodyRequestProduk);
 
         await axios
-            .post("http://localhost:5000/produk", myJSON, {
+            .post("http://localhost:5000/produk", bodyRequestProduk, {
                 headers: {
                     'Authorization': 'Bearer ' + token,
                     // "Content-Type": "application/json; charset=utf-8",

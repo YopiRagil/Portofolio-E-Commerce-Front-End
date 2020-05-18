@@ -139,19 +139,6 @@ const FormRegister = (props, postRegister) => {
                       Apakah anda yakin data yang anda masukkan sudah benar?
                     </label>
                   </div>
-                  <div
-                    className="custom-control custom-checkbox mb-3"
-                    style={{ paddingBottom: "50px" }}
-                  >
-                    <input
-                      type="checkbox"
-                      className="custom-control-input"
-                      id="customCheck1"
-                    />
-                    <label className="custom-control-label" for="customCheck1">
-                      Apakah anda yakin data yang anda masukkan sudah benar?
-                    </label>
-                  </div>
                   <button
                     onClick={() => postRegister()}
                     className="btn btn-lg btn-primary btn-block text-uppercase"
