@@ -18,7 +18,7 @@ export default function produkReducer(produkState = initialState, action) {
                 ...produkState,
                 produkData: action.payload,
                 isLoading: false,
-                tipeName: action.tipeName
+                tipeName: action.tipestock
             }
         case "GET_PRODUK_USER":
             return {

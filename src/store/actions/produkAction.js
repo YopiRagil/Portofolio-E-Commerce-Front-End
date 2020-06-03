@@ -21,17 +21,18 @@ export const getProdukAll = () => {
 }
 
 export const getProdukUser = () => {
-    console.log("cek 1")
+    // console.log("cek 1")
+    const token = localStorage.getItem('token')
     return async (dispatch) => {
         await dispatch({
             type: "LOADING_PRODUK"
         });
-        console.log("cek 2")
         const response = await axios.get(produkUserUrl, {
             headers: {
                 Authorization: 'Bearer ' + token
             }
         });
+        console.log("cek response", response)
         dispatch({
             type: "GET_PRODUK_USER",
             payload: response.data
@@ -47,8 +48,9 @@ export const getCategoryProduks = (categoryProduks) => {
         dispatch({
             type: "GET_PRODUK_ALL",
             payload: response.data.filter(item => item.tipe_id == categoryProduks),
-            tipestock: response.data.filter(item => item.tipe_id == categoryProduks)[0].tipe.tipe_stock
+            tipestock: response.data.filter(item => item.tipe_id == categoryProduks)[0].tipe.tipe_name
         })
+        // console.log("cek tipe name", response.data.filter(item => item.tipe_id == 1)[0].tipe.tipe_name)
     }
 };
 
@@ -81,7 +83,7 @@ export const addProduk = () => {
             promo: promo
         }
         const token = localStorage.getItem('token')
-        alert("sdh msuk addProduk2")
+        // alert("sdh msuk addProduk2")
         // console.log("body req", bodyRequestProduk)
         // const request = await axios
         //     .post(produkPostUrl, bodyRequestProduk, {
@@ -103,14 +105,14 @@ export const addProduk = () => {
                     // Accept: "application/json; charset=utf-8",
                 }
             })
-            .then(async (response) => {
-                if (response.status === 200) {
-                    dispatch({
-                        type: "GET_PRODUK_ALL",
-                        payload: response.data
-                    });
-                }
-            })
+            // .then(async (response) => {
+            //     if (response.status === 200) {
+            //         dispatch({
+            //             type: "GET_PRODUK_ALL",
+            //             payload: response.data
+            //         });
+            //     }
+            // })
             .catch(function (error) {
                 console.log(error);
             });

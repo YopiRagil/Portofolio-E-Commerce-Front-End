@@ -17,7 +17,7 @@ class ProdukList extends Component {
   };
   render() {
     const categoryKeyWord = this.props.produkData[0];
-    console.log("cek prod list", this.props.produkData);
+    console.log("cek prod list", this.props);
     return (
       <div>
         {console.log("produk list", this.props.produkData)};

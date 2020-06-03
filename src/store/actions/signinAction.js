@@ -9,6 +9,7 @@ export const doLogin = () => {
         const password = getState().user.password;
         localStorage.clear()
         localStorage.setItem("username", username)
+        console.log("cek storage2", localStorage)
         await axios
             .get(signInUrl, {
                 params: {
@@ -38,6 +39,7 @@ export const changeInputUser = (el) => {
 };
 export const doLogout = () => {
     localStorage.clear()
+    console.log("cek storage2", localStorage)
     return {
         type: "LOG_OUT",
     };
