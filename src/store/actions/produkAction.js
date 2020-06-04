@@ -1,8 +1,10 @@
 import axios from "axios"
-const produkAllUrl = "http://0.0.0.0:5050/produk/all"
-const produkPostUrl = "http://0.0.0.0:5050/produk"
-const produkUserUrl = "http://0.0.0.0:5050/produk/user"
-const token = localStorage.getItem('token')
+const produkAllUrl = "https://electronice_be.yopiragil.my.id/produk/all"
+const produkPostUrl = "https://electronice_be.yopiragil.my.id/produk"
+const produkUserUrl = "https://electronice_be.yopiragil.my.id/produk/user"
+// const produkAllUrl = "http://0.0.0.0:5050/produk/all"
+// const produkPostUrl = "http://0.0.0.0:5050/produk"
+// const produkUserUrl = "http://0.0.0.0:5050/produk/user"
 
 export const getProdukAll = () => {
     // console.log("cek 1")
@@ -98,11 +100,10 @@ export const addProduk = () => {
         const myJSON = JSON.stringify(bodyRequestProduk);
 
         await axios
-            .post("http://localhost:5000/produk", bodyRequestProduk, {
+            .post("https://localhost:5000/produk", bodyRequestProduk, {
                 headers: {
                     'Authorization': 'Bearer ' + token,
-                    // "Content-Type": "application/json; charset=utf-8",
-                    // Accept: "application/json; charset=utf-8",
+                    "Content-Type": "application/json; charset=utf-8",
                 }
             })
             // .then(async (response) => {

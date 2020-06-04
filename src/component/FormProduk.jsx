@@ -4,7 +4,7 @@ const FormProduk = (props, postProduk) => {
   // console.log("regis3");
   postProduk = async () => {
     await props.addProduk();
-    props.history.push("/profile");
+    // props.history.push("/profile");
     // console.log("regis1");
   };
   return (
@@ -26,6 +26,7 @@ const FormProduk = (props, postProduk) => {
           class="form-control"
           id="exampleFormControlSelect1"
           name="tipe"
+          type="number"
           onChange={(el) => props.changeInput(el)}
         >
           <option value="1">Hand Phone</option>

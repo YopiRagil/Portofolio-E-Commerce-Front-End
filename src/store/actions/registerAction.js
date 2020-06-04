@@ -1,7 +1,10 @@
 import axios from "axios"
-const clientUrl = "http://0.0.0.0:5050/client"
-const userUrl = "http://0.0.0.0:5050/user"
-const signInUrl = "http://0.0.0.0:5050/auth"
+const clientUrl = "https://electronice_be.yopiragil.my.id/client"
+const userUrl = "https://electronice_be.yopiragil.my.id/user"
+const signInUrl = "https://electronice_be.yopiragil.my.id/auth"
+// const clientUrl = "http://0.0.0.0:5050/client"
+// const userUrl = "http://0.0.0.0:5050/user"
+// const signInUrl = "http://0.0.0.0:5050/auth"
 
 
 export const registerClient = () => {

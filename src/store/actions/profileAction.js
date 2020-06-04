@@ -1,5 +1,6 @@
 import axios from "axios"
-const userUrl = "http://0.0.0.0:5050/user/list"
+const userUrl = "https://electronice_be.yopiragil.my.id/user/list"
+// const userUrl = "http://0.0.0.0:5050/user/list"
 
 export const getProfileInformation = () => {
     // console.log("cek 1")

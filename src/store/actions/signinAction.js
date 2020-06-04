@@ -1,5 +1,7 @@
 import axios from "axios"
-const signInUrl = "http://0.0.0.0:5050/auth"
+const signInUrl = "https://electronice_be.yopiragil.my.id/auth"
+// const signInUrl = "http://0.0.0.0:5050/auth"
+
 
 export const doLogin = () => {
     // console.log("cek masuk");
