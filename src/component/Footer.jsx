@@ -22,7 +22,7 @@ const Footer = (props) => {
                 <p>Best Seller</p>
               </div>
               <div className="col-4">
-                <p>Kategori</p>
+                <p>Category</p>
                 <p>About Us</p>
                 <p>Join Us</p>
               </div>
