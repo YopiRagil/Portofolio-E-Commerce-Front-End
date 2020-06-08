@@ -20,7 +20,7 @@ const Kategori = (props) => {
               <img
                 className="card-img-top"
                 src={require("../media/hp.jpg")}
-                alt="Card image cap"
+                alt="Card cap"
                 style={{ width: "100%", height: "50%" }}
               />
               <div className="card-body">
@@ -34,7 +34,7 @@ const Kategori = (props) => {
               <img
                 className="card-img-top"
                 src={require("../media/laptop.jpg")}
-                alt="Card image cap"
+                alt="Card cap"
                 style={{ width: "100%", height: "50%" }}
               />
               <div className="card-body">
@@ -48,7 +48,7 @@ const Kategori = (props) => {
               <img
                 className="card-img-top"
                 src={require("../media/speaker.jpg")}
-                alt="Card image cap"
+                alt="Card cap"
                 style={{ width: "100%", height: "50%" }}
               />
               <div className="card-body">
@@ -62,7 +62,7 @@ const Kategori = (props) => {
               <img
                 className="card-img-top"
                 src={require("../media/tv.jpg")}
-                alt="Card image cap"
+                alt="Card cap"
                 style={{ width: "100%", height: "50%" }}
               />
               <div className="card-body">
@@ -76,7 +76,7 @@ const Kategori = (props) => {
               <img
                 className="card-img-top"
                 src={require("../media/logo.png")}
-                alt="Card image cap"
+                alt="Card cap"
                 style={{ width: "100%", height: "50%" }}
               />
               <div className="card-body">
@@ -90,7 +90,7 @@ const Kategori = (props) => {
               <img
                 className="card-img-top"
                 src={require("../media/logo.png")}
-                alt="Card image cap"
+                alt="Card cap"
                 style={{ width: "100%", height: "50%" }}
               />
               <div className="card-body">
@@ -106,7 +106,7 @@ const Kategori = (props) => {
               <img
                 className="card-img-top"
                 src={require("../media/hp.jpg")}
-                alt="Card image cap"
+                alt="Card cap"
                 style={{ width: "100%", height: "50%" }}
               />
               <div className="card-body">
@@ -120,7 +120,7 @@ const Kategori = (props) => {
               <img
                 className="card-img-top"
                 src={require("../media/laptop.jpg")}
-                alt="Card image cap"
+                alt="Card cap"
                 style={{ width: "100%", height: "50%" }}
               />
               <div className="card-body">
@@ -134,7 +134,7 @@ const Kategori = (props) => {
               <img
                 className="card-img-top"
                 src={require("../media/speaker.jpg")}
-                alt="Card image cap"
+                alt="Card cap"
                 style={{ width: "100%", height: "50%" }}
               />
               <div className="card-body">
@@ -148,7 +148,7 @@ const Kategori = (props) => {
               <img
                 className="card-img-top"
                 src={require("../media/tv.jpg")}
-                alt="Card image cap"
+                alt="Card cap"
                 style={{ width: "100%", height: "50%" }}
               />
               <div className="card-body">
@@ -162,7 +162,7 @@ const Kategori = (props) => {
               <img
                 className="card-img-top"
                 src={require("../media/logo.png")}
-                alt="Card image cap"
+                alt="Card cap"
                 style={{ width: "100%", height: "50%" }}
               />
               <div className="card-body">
@@ -176,7 +176,7 @@ const Kategori = (props) => {
               <img
                 className="card-img-top"
                 src={require("../media/logo.png")}
-                alt="Card image cap"
+                alt="Card cap"
                 style={{ width: "100%", height: "50%" }}
               />
               <div className="card-body">

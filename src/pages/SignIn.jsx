@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import axios from "axios";
-import { withRouter } from "react-router-dom";
 import Navbar from "../component/Navbar";
 import Footer from "../component/Footer";
 import FormSignIn from "../component/SignInForm";

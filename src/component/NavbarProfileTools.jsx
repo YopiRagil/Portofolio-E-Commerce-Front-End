@@ -15,7 +15,6 @@ const ToolProfil = (props) => {
             <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle mr-lg-5"
-                href="#"
                 id="navbarDropdown"
                 role="button"
                 data-toggle="dropdown"
@@ -23,6 +22,7 @@ const ToolProfil = (props) => {
                 aria-expanded="false"
               >
                 <img
+                  alt="pict"
                   // src={props.avatar}
                   style={{ borderRadius: "100px", width: "8vmin" }}
                 />
@@ -38,6 +38,7 @@ const ToolProfil = (props) => {
               >
                 <div className="d-flex justify-content-center">
                   <img
+                    alt="pict"
                     // src={props.avatar}
                     style={{ borderRadius: "50px", width: "15vmin" }}
                   />

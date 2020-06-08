@@ -46,8 +46,8 @@ export const getCategoryProduks = (categoryProduks) => {
             const res = await axios.get(produkUrl + "/all");
             dispatch({
                 type: "GET_PRODUK_ALL",
-                payload: res.data.filter(item => item.tipe_id == categoryProduks),
-                tipestock: res.data.filter(item => item.tipe_id == categoryProduks)[0].tipe.tipe_name
+                payload: res.data.filter(item => item.tipe_id === categoryProduks),
+                tipestock: res.data.filter(item => item.tipe_id === categoryProduks)[0].tipe.tipe_name
             })
         }
         catch (error) {
@@ -65,9 +65,9 @@ export const addProduk = () => {
         await dispatch({
             type: "LOADING_PRODUK"
         });
-        var tipeId = getState().produk.tipe;
+        let tipeId = getState().produk.tipe;
         if (tipeId === undefined) {
-            var tipeId = 1
+            let tipeId = 1
         }
         const namaProduk = getState().produk.namaProduk;
         const harga = getState().produk.harga;

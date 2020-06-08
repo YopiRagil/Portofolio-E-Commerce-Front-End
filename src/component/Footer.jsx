@@ -7,6 +7,7 @@ const Footer = (props) => {
         <div className="row">
           <div className="col-lg-3 my-auto">
             <img
+              alt="pict"
               src={require("../media/logo1.png")}
               style={{ width: "200px" }}
             />
@@ -32,12 +33,14 @@ const Footer = (props) => {
             <div className="d-flex flex-row bd-highlight mb-3">
               <div className="bd-highlight mr-1">
                 <img
+                  alt="pict"
                   src={require("../media/fb.png")}
                   style={{ width: "50px" }}
                 />
               </div>
               <div className="bd-highlight mr-1">
                 <img
+                  alt="pict"
                   src={require("../media/ig.png")}
                   style={{ width: "50px" }}
                 />
@@ -50,6 +53,7 @@ const Footer = (props) => {
               </div>
               <div className="bd-highlight mr-">
                 <img
+                  alt="pict"
                   src={require("../media/link.png")}
                   style={{ width: "50px" }}
                 />

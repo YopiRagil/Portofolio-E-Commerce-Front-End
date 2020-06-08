@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ToolProfil from "./NavbarProfileTools";
-import { connect } from "react-redux";
 
 const Navbar = (props, postSignout, changeRouter) => {
   // console.log("cek masuk logout", props);
@@ -25,7 +24,11 @@ const Navbar = (props, postSignout, changeRouter) => {
   return (
     <navbar className="navbar navbar-expand-lg navbar-light shadow p-3 mb-5 bg-white rounded">
       <Link className="navbar-brand" to="/">
-        <img src={require("../media/logo.png")} style={{ width: "90px" }} />
+        <img
+          alt="pict"
+          src={require("../media/logo.png")}
+          style={{ width: "90px" }}
+        />
       </Link>
       <button
         className="navbar-toggler"

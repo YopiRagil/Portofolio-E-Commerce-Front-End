@@ -37,7 +37,7 @@ class Profile extends Component {
 const mapStateToProps = (state) => {
   return {
     profileData: state.userProfile.profileData,
-    isLoading: state.userProfile.isLoading,
+    isLoadings: state.userProfile.isLoading,
     loginInfo: state.user,
     produkUser: state.produk.produkUser,
     isLoading: state.produk.isLoading,

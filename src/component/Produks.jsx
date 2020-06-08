@@ -12,7 +12,7 @@ const Produks = (props) => {
         <img
           className="card-img-top imgProduk"
           src={props.gambar}
-          alt="Card image cap"
+          alt="Card cap"
         />
         <div className="card-body">
           <h5 className="card-title kategoriName">{props.produkName}</h5>

@@ -2,7 +2,6 @@ import React from "react";
 import ProfileAsBuyer from "./ProfileAsBuyer";
 import Produks from "./Produks";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
 
 const ProfileBio = (props) => {
   return (
@@ -12,6 +11,7 @@ const ProfileBio = (props) => {
         <div className="row">
           <div className="col-lg-3">
             <img
+              alt="pict"
               // src={props.profileData.avatar}
               style={{ width: "250px", padding: "0 20px 20px 0" }}
             />
@@ -85,6 +85,7 @@ const ProfileBio = (props) => {
           <Link className="row ml-2" to="/addproduk">
             <div>
               <img
+                alt="pict"
                 src={require("../media/addproduk.png")}
                 style={{ width: "30px" }}
               />

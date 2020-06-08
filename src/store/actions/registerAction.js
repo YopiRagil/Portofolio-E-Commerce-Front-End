@@ -12,7 +12,6 @@ export const registerClient = () => {
         alert("sdh msuk tws regis1")
         const username = getState().register.userName;
         const password = getState().register.password;
-        const confirmPassword = getState().register.confirmPassword;
         const name = getState().register.name;
         const email = getState().register.email;
         const noTlp = getState().register.noTlp;
