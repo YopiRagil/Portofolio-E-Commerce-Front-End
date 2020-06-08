@@ -3,12 +3,16 @@ import Navbar from "../component/Navbar";
 import Produks from "../component/Produks";
 import Footer from "../component/Footer";
 import { connect } from "react-redux";
-import { getCategoryProduks } from "../store/actions/produkAction";
-
+import {
+  getCategoryProduks,
+  InputSearchProduk,
+} from "../store/actions/produkAction";
+import { getProfileInformation } from "../store/actions/profileAction";
 class ProdukList extends Component {
   componentDidMount = async () => {
     const categoryID = await this.props.match.params.category;
     this.props.getCategoryProduks(categoryID);
+    this.props.getProfileInformation();
   };
 
   handleRequestCategory = async (categoryProduks) => {
@@ -16,27 +20,28 @@ class ProdukList extends Component {
     this.props.getCategoryProduks(categoryProduks);
   };
   render() {
-    const categoryKeyWord = this.props.produkData[0];
-    console.log("cek prod list", this.props);
     return (
       <div>
         {console.log("produk list", this.props.produkData)};
         <Navbar
           {...this.props}
+          {...this.props.profileData}
           inputCategory={(categoryProduks) =>
             this.handleRequestCategory(categoryProduks)
           }
+          keyword={this.props.search}
+          doSearch={(event) => this.props.InputSearchProduk(event)}
         />
         <div
           className="d-flex justify-content-center"
           style={{ paddingTop: "50px" }}
         >
           <div className="card" style={{ width: "90%", padding: "30px" }}>
-            <h3>Find : {this.props.tipeName}</h3>
+            <h3>{this.props.tipeName}</h3>
             <hr />
             <div className="container-fluid">
               <div className="row m-5">
-                {this.props.produkData.map((item, key) => (
+                {this.props.produkData.map((item) => (
                   <>
                     <Produks
                       produkName={item.nama_produk}
@@ -59,11 +64,14 @@ class ProdukList extends Component {
 const mapStateToProps = (state) => {
   return {
     produkData: state.produk.produkData,
+    profileData: state.userProfile.profileData,
     isLoading: state.produk.isLoading,
     tipeName: state.produk.tipeName,
   };
 };
 const mapDispatchToProps = {
   getCategoryProduks,
+  getProfileInformation,
+  InputSearchProduk,
 };
 export default connect(mapStateToProps, mapDispatchToProps)(ProdukList);

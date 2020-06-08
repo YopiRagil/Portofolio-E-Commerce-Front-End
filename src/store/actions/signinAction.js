@@ -26,6 +26,7 @@ export const doLogin = () => {
                 // localStorage.clear()
                 // localStorage.data.removeItem("token")
                 localStorage.setItem("token", response.data.token)
+                localStorage.setItem("isLogin", true)
                 console.log("cek storage2", localStorage)
             })
             .catch(function (error) {
@@ -41,7 +42,6 @@ export const changeInputUser = (el) => {
 };
 export const doLogout = () => {
     localStorage.clear()
-    console.log("cek storage2", localStorage)
     return {
         type: "LOG_OUT",
     };

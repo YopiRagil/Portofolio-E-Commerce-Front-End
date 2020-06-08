@@ -13,14 +13,11 @@ class Profile extends Component {
     this.props.getProdukUser();
   };
   render() {
-    // console.log("response profile", this.props);
-    // console.log("cek profile", this.props.profileData);
-    const isLoading = this.props.isLoading;
     return (
       <div>
-        {this.props.loginInfo.isLogin ? (
+        {localStorage.getItem("isLogin") ? (
           <div>
-            <Navbar {...this.props} />
+            <Navbar {...this.props} {...this.props.profileData} />
             <ProfileBio {...this.props} />
             <Footer />
           </div>

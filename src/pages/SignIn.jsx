@@ -9,14 +9,9 @@ import { doLogin, changeInputUser } from "../store/actions/signinAction";
 
 class SignIn extends Component {
   render() {
-    // console.log("cek props di sgin in", this.props);
-    // const message = this.props.location.state
-    //   ? this.props.location.state.message
-    //   : " ";
-
     return (
       <React.Fragment>
-        <Navbar />
+        <Navbar {...this.props} {...this.props.profileData} />
         <FormSignIn {...this.props} />
         <Footer />
       </React.Fragment>
@@ -27,6 +22,7 @@ const mapStateToProps = (state) => {
   return {
     token: state.user.token,
     isLogin: state.user.isLogin,
+    profileData: state.userProfile.profileData,
   };
 };
 

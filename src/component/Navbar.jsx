@@ -21,6 +21,7 @@ const Navbar = (props, postSignout, changeRouter) => {
       props.history.replace("produk/" + category);
     }
   };
+
   return (
     <navbar className="navbar navbar-expand-lg navbar-light shadow p-3 mb-5 bg-white rounded">
       <Link className="navbar-brand" to="/">
@@ -96,6 +97,8 @@ const Navbar = (props, postSignout, changeRouter) => {
             type="search"
             placeholder="Search"
             aria-label="Search"
+            onChange={props.doSearch}
+            value={props.keyword}
           />
           <button className="btn btn-outline-info my-2 my-sm-0" type="submit">
             Search

@@ -4,6 +4,7 @@ const initialState = {
     tipeName: '',
     produkUser: [],
     isLoading: true,
+    search: ''
 };
 
 export default function produkReducer(produkState = initialState, action) {
@@ -13,12 +14,14 @@ export default function produkReducer(produkState = initialState, action) {
                 ...produkState,
                 isLoading: true
             }
+        case "CLEAR":
+            return initialState
         case "GET_PRODUK_ALL":
             return {
                 ...produkState,
                 produkData: action.payload,
+                tipeName: action.tipestock,
                 isLoading: false,
-                tipeName: action.tipestock
             }
         case "GET_PRODUK_USER":
             return {
@@ -36,7 +39,18 @@ export default function produkReducer(produkState = initialState, action) {
             return {
                 ...produkState,
                 [action.payload.target.name]: action.payload.target.value,
-            };
+            }
+        case "SEARCH_PRODUK":
+            return {
+                ...produkState,
+                produkData: action.payload,
+                isLoading: false
+            }
+        case "SEARCH_INPUT":
+            return {
+                ...produkState,
+                search: action.payload
+            }
         default:
             return produkState
     }

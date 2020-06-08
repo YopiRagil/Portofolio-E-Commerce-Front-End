@@ -1,10 +1,6 @@
 import axios from "axios"
-const produkAllUrl = "https://electronice_be.yopiragil.my.id/produk/all"
-const produkPostUrl = "https://electronice_be.yopiragil.my.id/produk"
-const produkUserUrl = "https://electronice_be.yopiragil.my.id/produk/user"
-// const produkAllUrl = "http://0.0.0.0:5050/produk/all"
-// const produkPostUrl = "http://0.0.0.0:5050/produk"
-// const produkUserUrl = "http://0.0.0.0:5050/produk/user"
+const produkUrl = "https://electronice_be.yopiragil.my.id/produk"
+// const produkUrl = "http://0.0.0.0:5050/produk"
 
 export const getProdukAll = () => {
     // console.log("cek 1")
@@ -13,7 +9,7 @@ export const getProdukAll = () => {
             type: "LOADING_PRODUK"
         });
         // console.log("cek 2")
-        const response = await axios.get(produkAllUrl);
+        const response = await axios.get(produkUrl + "/all");
         dispatch({
             type: "GET_PRODUK_ALL",
             payload: response.data
@@ -29,7 +25,7 @@ export const getProdukUser = () => {
         await dispatch({
             type: "LOADING_PRODUK"
         });
-        const response = await axios.get(produkUserUrl, {
+        const response = await axios.get(produkUrl + "/user", {
             headers: {
                 Authorization: 'Bearer ' + token
             }
@@ -46,12 +42,17 @@ export const getCategoryProduks = (categoryProduks) => {
         await dispatch({
             type: "LOADING_PRODUK"
         });
-        const response = await axios.get(produkAllUrl);
-        dispatch({
-            type: "GET_PRODUK_ALL",
-            payload: response.data.filter(item => item.tipe_id == categoryProduks),
-            tipestock: response.data.filter(item => item.tipe_id == categoryProduks)[0].tipe.tipe_name
-        })
+        try {
+            const res = await axios.get(produkUrl + "/all");
+            dispatch({
+                type: "GET_PRODUK_ALL",
+                payload: res.data.filter(item => item.tipe_id == categoryProduks),
+                tipestock: res.data.filter(item => item.tipe_id == categoryProduks)[0].tipe.tipe_name
+            })
+        }
+        catch (error) {
+            console.error(error.response);
+        }
         // console.log("cek tipe name", response.data.filter(item => item.tipe_id == 1)[0].tipe.tipe_name)
     }
 };
@@ -64,7 +65,10 @@ export const addProduk = () => {
         await dispatch({
             type: "LOADING_PRODUK"
         });
-        const tipeId = getState().produk.tipe;
+        var tipeId = getState().produk.tipe;
+        if (tipeId === undefined) {
+            var tipeId = 1
+        }
         const namaProduk = getState().produk.namaProduk;
         const harga = getState().produk.harga;
         const stock = getState().produk.stock;
@@ -74,50 +78,30 @@ export const addProduk = () => {
         const diskon = getState().produk.diskon;
         const promo = getState().produk.promo;
         const bodyRequestProduk = {
-            tipeId: tipeId,
-            namaProduk: namaProduk,
+            tipe_id: tipeId,
+            nama_produk: namaProduk,
             harga: harga,
-            stock: stock,
             sold: sold,
-            gambar: gambar,
+            stock: stock,
             deskripsi: deskripsi,
+            gambar: gambar,
             diskon: diskon,
             promo: promo
         }
         const token = localStorage.getItem('token')
-        // alert("sdh msuk addProduk2")
-        // console.log("body req", bodyRequestProduk)
-        // const request = await axios
-        //     .post(produkPostUrl, bodyRequestProduk, {
-        //         headers: {
-        //             Authorization: 'Bearer ' + token,
-        //             // "Content-Type": "applicaton/json; Chart=utf-8",
-        //             // "Content-Length": "<calculated when request is sent>; Chart=utf-8"
-        //         },
-        //     })
-
-
-        const myJSON = JSON.stringify(bodyRequestProduk);
-
+        console.log("body req", bodyRequestProduk)
         await axios
-            .post("https://localhost:5000/produk", bodyRequestProduk, {
+            .post(produkUrl, bodyRequestProduk, {
                 headers: {
-                    'Authorization': 'Bearer ' + token,
-                    "Content-Type": "application/json; charset=utf-8",
-                }
+                    Authorization: 'Bearer ' + token,
+                },
             })
-            // .then(async (response) => {
-            //     if (response.status === 200) {
-            //         dispatch({
-            //             type: "GET_PRODUK_ALL",
-            //             payload: response.data
-            //         });
-            //     }
-            // })
+            .then(response => {
+                console.log(response)
+            })
             .catch(function (error) {
-                console.log(error);
+                console.log(error.response);
             });
-        // console.log("req regis", request)
 
     };
 };
@@ -127,4 +111,43 @@ export const changeInputUser = (el) => {
         type: "CHANGE_INPUT_PRODUK",
         payload: el,
     };
+};
+
+export const clearWhenLogout = () => {
+    return {
+        type: "CLEAR",
+    };
+};
+
+export const InputSearchProduk = (event) => {
+    const value = event.target.value;
+    return async (dispatch) => {
+        await dispatch({
+            type: "SEARCH_INPUT"
+        });
+        await dispatch(searchProduk(value));
+    }
+};
+export const searchProduk = (keyword) => {
+    return async (dispatch) => {
+        if (keyword.length > 2) {
+            await dispatch({
+                type: "LOADING_PRODUK"
+            });
+            try {
+                const response = await axios.get(produkUrl + "/all", {
+                    params: {
+                        keyword: keyword,
+                    },
+                });
+                dispatch({
+                    type: "SEARCH_PRODUK",
+                    payload: response.data,
+                });
+            } catch (error) {
+                console.error(error);
+            }
+        }
+    }
+
 };

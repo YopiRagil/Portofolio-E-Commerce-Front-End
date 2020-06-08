@@ -1,6 +1,6 @@
 import axios from "axios"
-const userUrl = "https://electronice_be.yopiragil.my.id/user/list"
-// const userUrl = "http://0.0.0.0:5050/user/list"
+const userUrl = "https://electronice_be.yopiragil.my.id/user"
+// const userUrl = "http://0.0.0.0:5050/user"
 
 export const getProfileInformation = () => {
     // console.log("cek 1")
@@ -10,7 +10,7 @@ export const getProfileInformation = () => {
             type: "LOADING_PROFILE"
         });
         // console.log("cek 2", token)
-        const response = await axios.get(userUrl, {
+        const response = await axios.get(userUrl + "/list", {
             headers: {
                 Authorization: 'Bearer ' + token
             }

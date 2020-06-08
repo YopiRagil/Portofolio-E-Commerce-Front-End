@@ -9,7 +9,7 @@ const ToolProfil = (props) => {
   };
   return (
     <section>
-      {props.isLogin ? (
+      {localStorage.getItem("isLogin") ? (
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav">
             <li className="nav-item dropdown">
@@ -23,7 +23,7 @@ const ToolProfil = (props) => {
                 aria-expanded="false"
               >
                 <img
-                  src={require("../media/profil_picture_default.png")}
+                  // src={props.avatar}
                   style={{ borderRadius: "100px", width: "8vmin" }}
                 />
               </a>
@@ -38,7 +38,7 @@ const ToolProfil = (props) => {
               >
                 <div className="d-flex justify-content-center">
                   <img
-                    src={require("../media/profil_picture_default.png")}
+                    // src={props.avatar}
                     style={{ borderRadius: "50px", width: "15vmin" }}
                   />
                 </div>
@@ -47,7 +47,7 @@ const ToolProfil = (props) => {
                   className="dropdown-item signin"
                   style={{ textAlign: "center", color: "white" }}
                 >
-                  {props.dataUser.name}
+                  {props.name}
                 </Link>
                 <hr />
                 <p style={{ textAlign: "center", color: "white" }}>
