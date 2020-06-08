@@ -12,7 +12,7 @@ const ProfileBio = (props) => {
           <div className="col-lg-3">
             <img
               alt="pict"
-              // src={props.profileData.avatar}
+              src={props.profileData.avatar}
               style={{ width: "250px", padding: "0 20px 20px 0" }}
             />
           </div>

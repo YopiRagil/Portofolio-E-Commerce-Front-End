@@ -23,7 +23,7 @@ const ToolProfil = (props) => {
               >
                 <img
                   alt="pict"
-                  // src={props.avatar}
+                  src={props.avatar}
                   style={{ borderRadius: "100px", width: "8vmin" }}
                 />
               </p>
@@ -39,7 +39,7 @@ const ToolProfil = (props) => {
                 <div className="d-flex justify-content-center">
                   <img
                     alt="pict"
-                    // src={props.avatar}
+                    src={props.avatar}
                     style={{ borderRadius: "50px", width: "15vmin" }}
                   />
                 </div>

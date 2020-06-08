@@ -89,7 +89,7 @@ const Navbar = (props, postSignout, changeRouter) => {
           <li>
             <li className="nav-item active">
               <Link className="nav-link" href="#">
-                GRATIS <span className="sr-only">(current)</span>
+                Diskon <span className="sr-only">(current)</span>
               </Link>
             </li>
           </li>
