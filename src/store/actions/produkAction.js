@@ -66,9 +66,6 @@ export const addProduk = () => {
             type: "LOADING_PRODUK"
         });
         let tipeId = getState().produk.tipe;
-        if (tipeId === undefined) {
-            let tipeId = 1
-        }
         const namaProduk = getState().produk.namaProduk;
         const harga = getState().produk.harga;
         const stock = getState().produk.stock;

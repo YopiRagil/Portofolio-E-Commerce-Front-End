@@ -47,6 +47,7 @@ const Footer = (props) => {
               </div>
               <div className="bd-highlight mr-1">
                 <img
+                  alt="pict"
                   src={require("../media/twit.png")}
                   style={{ width: "50px" }}
                 />

@@ -13,7 +13,7 @@ const ToolProfil = (props) => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav">
             <li className="nav-item dropdown">
-              <a
+              <p
                 className="nav-link dropdown-toggle mr-lg-5"
                 id="navbarDropdown"
                 role="button"
@@ -26,7 +26,7 @@ const ToolProfil = (props) => {
                   // src={props.avatar}
                   style={{ borderRadius: "100px", width: "8vmin" }}
                 />
-              </a>
+              </p>
               <div
                 className="dropdown-menu mr-lg-auto"
                 aria-labelledby="navbarDropdown"
