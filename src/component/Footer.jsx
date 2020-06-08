@@ -17,7 +17,7 @@ const Footer = (props) => {
             <h5 className="my-2">Menu :</h5>
             <div className="row">
               <div className="col-4">
-                <p>Diskon</p>
+                <p>DISCOUNT</p>
                 <p>Contact Us</p>
                 <p>Best Seller</p>
               </div>
