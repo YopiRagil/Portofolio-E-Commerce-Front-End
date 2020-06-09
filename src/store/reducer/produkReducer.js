@@ -4,7 +4,8 @@ const initialState = {
     tipeName: '',
     produkUser: [],
     isLoading: true,
-    search: ''
+    search: '',
+    update: false,
 };
 
 export default function produkReducer(produkState = initialState, action) {
@@ -13,6 +14,16 @@ export default function produkReducer(produkState = initialState, action) {
             return {
                 ...produkState,
                 isLoading: true
+            }
+        case "UPDATE_TRUE":
+            return {
+                ...produkState,
+                update: true,
+            }
+        case "UPDATE_FALSE":
+            return {
+                ...produkState,
+                update: false,
             }
         case "CLEAR":
             return initialState

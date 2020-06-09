@@ -3,23 +3,19 @@ const produkUrl = "https://electronice_be.yopiragil.my.id/produk"
 // const produkUrl = "http://0.0.0.0:5050/produk"
 
 export const getProdukAll = () => {
-    // console.log("cek 1")
     return async (dispatch) => {
         await dispatch({
             type: "LOADING_PRODUK"
         });
-        // console.log("cek 2")
         const response = await axios.get(produkUrl + "/all");
         dispatch({
             type: "GET_PRODUK_ALL",
             payload: response.data
         })
-        // console.log("cek produk", response.data)
     }
 }
 
 export const getProdukUser = () => {
-    // console.log("cek 1")
     const token = localStorage.getItem('token')
     return async (dispatch) => {
         await dispatch({
@@ -53,12 +49,8 @@ export const getCategoryProduks = (categoryProduks) => {
         catch (error) {
             console.error(error.response);
         }
-        // console.log("cek tipe name", response.data.filter(item => item.tipe_id == 1)[0].tipe.tipe_name)
     }
 };
-
-
-// post
 
 export const addProduk = () => {
     return async (dispatch, getState) => {
@@ -116,6 +108,40 @@ export const clearWhenLogout = () => {
     };
 };
 
+export const updateProduk = () => {
+    return async (dispatch) => {
+        await dispatch({
+            type: "UPDATE_TRUE",
+        });
+        await dispatch({
+            type: "UPDATE_FALSE",
+        });
+    }
+}
+
+
+export const deleteProduk = (idProduk) => {
+    return async (dispatch) => {
+        await dispatch({
+            type: "LOADING_PRODUK"
+        });
+        const token = localStorage.getItem('token')
+        await axios
+            .delete((produkUrl + '/' + idProduk), {
+                headers: {
+                    Authorization: 'Bearer ' + token,
+                },
+            })
+            .then(response => {
+                console.log(response)
+            })
+            .catch(function (error) {
+                console.log(error.response);
+            });
+
+    };
+}
+
 export const InputSearchProduk = (event) => {
     const value = event.target.value;
     return async (dispatch) => {
@@ -148,3 +174,4 @@ export const searchProduk = (keyword) => {
     }
 
 };
+

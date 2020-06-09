@@ -6,6 +6,7 @@ import Profile from "../pages/Profile";
 import SignIn from "../pages/SignIn";
 import Register from "../pages/Register";
 import AddProduk from "../pages/ProdukAdd";
+import ProdukDetail from "../pages/ProdukDetail";
 import { Provider } from "react-redux";
 import store from "../store";
 
@@ -20,6 +21,7 @@ const MainRoutes = () => {
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/produk" component={ProdukList} />
           <Route exact path="/addproduk" component={AddProduk} />
+          <Route exact path="/produkdetail" component={ProdukDetail} />
           <Route exact path="/produk/:category" component={ProdukList} />
         </Switch>
       </BrowserRouter>

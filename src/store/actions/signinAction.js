@@ -27,7 +27,7 @@ export const doLogin = () => {
                 // localStorage.data.removeItem("token")
                 localStorage.setItem("token", response.data.token)
                 localStorage.setItem("isLogin", true)
-                console.log("cek storage2", localStorage)
+                localStorage.setItem("id_user", response.data.id)
             })
             .catch(function (error) {
             });

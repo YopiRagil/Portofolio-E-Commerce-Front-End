@@ -6,45 +6,57 @@ import { Link } from "react-router-dom";
 const ProfileBio = (props) => {
   return (
     <section className="container-fluid">
-      <div style={{ padding: "30px" }}>
-        <h3 style={{ paddingBottom: "20px" }}>{props.profileData.name}</h3>
-        <div className="row">
-          <div className="col-lg-3">
-            <img
-              alt="pict"
-              src={props.profileData.avatar}
-              style={{ width: "250px", padding: "0 20px 20px 0" }}
-            />
-          </div>
-          <div className=" col-lg-7">
-            <h5>Profile</h5>
-            <table className="table table-borderless">
-              <tbody>
-                <tr>
-                  <th scope="row">Username</th>
-                  <td>: {localStorage.getItem("username")}</td>
-                </tr>
-                <tr>
-                  <th scope="row">Nama</th>
-                  <td>: {props.profileData.name}</td>
-                </tr>
-                <tr>
-                  <th scope="row">Alamat</th>
-                  <td>: {props.profileData.alamat}</td>
-                </tr>
-                <tr>
-                  <th scope="row">Email</th>
-                  <td>: {props.profileData.email}</td>
-                </tr>
-                <tr>
-                  <th scope="row">Contact</th>
-                  <td>: {props.profileData.no_hp}</td>
-                </tr>
-              </tbody>
-            </table>
+      {props.isLoadingProfile ? (
+        <div className="d-flex justify-content-center">
+          <div
+            style={{ width: "200px", height: "200px", color: "gray" }}
+            className="spinner-grow "
+            role="status"
+          >
+            <span className="sr-only">Loading...</span>
           </div>
         </div>
-      </div>
+      ) : (
+        <div style={{ padding: "30px" }}>
+          <h3 style={{ paddingBottom: "20px" }}>{props.profileData.name}</h3>
+          <div className="row">
+            <div className="col-lg-3">
+              <img
+                alt="pict"
+                src={props.profileData.avatar}
+                style={{ width: "250px", padding: "0 20px 20px 0" }}
+              />
+            </div>
+            <div className=" col-lg-7">
+              <h5>Profile</h5>
+              <table className="table table-borderless">
+                <tbody>
+                  <tr>
+                    <th scope="row">Username</th>
+                    <td>: {localStorage.getItem("username")}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Nama</th>
+                    <td>: {props.profileData.name}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Alamat</th>
+                    <td>: {props.profileData.alamat}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Email</th>
+                    <td>: {props.profileData.email}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Contact</th>
+                    <td>: {props.profileData.no_hp}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      )}
       <nav>
         <div className="nav nav-tabs" id="nav-tab" role="tablist">
           <a
@@ -93,18 +105,32 @@ const ProfileBio = (props) => {
             <p>Tambah produk</p>
           </Link>
           <div className="container-fluid">
-            <div className="row m-5">
-              {props.produkUser.map((item, key) => (
-                <>
+            {props.isLoadingProduk ? (
+              <div className="d-flex justify-content-center">
+                <div
+                  style={{ width: "200px", height: "200px", color: "gray" }}
+                  className="spinner-grow "
+                  role="status"
+                >
+                  <span className="sr-only">Loading...</span>
+                </div>
+              </div>
+            ) : (
+              <div className="row m-5">
+                {props.produkUser.map((item) => (
                   <Produks
+                    doingDelete={(produkId) => props.doDelete(produkId)}
+                    {...props}
+                    produkId={item.id}
+                    user_id={item.user_id}
                     produkName={item.nama_produk}
                     gambar={item.gambar}
                     harga={item.harga}
                     stock={item.stock}
                   />
-                </>
-              ))}
-            </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
         <div

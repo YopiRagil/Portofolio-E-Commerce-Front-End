@@ -13,7 +13,6 @@ class Register extends Component {
     return (
       <div>
         <Navbar {...this.props} {...this.props.profileData} />
-        {console.log("regis2", this.props)}
         <FormRegister {...this.props} />
         <Footer />
       </div>

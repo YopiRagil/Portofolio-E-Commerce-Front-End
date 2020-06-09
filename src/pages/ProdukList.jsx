@@ -19,10 +19,10 @@ class ProdukList extends Component {
     await this.props.history.replace("produk/" + categoryProduks);
     this.props.getCategoryProduks(categoryProduks);
   };
+
   render() {
     return (
       <div>
-        {console.log("produk list", this.props.produkData)};
         <Navbar
           {...this.props}
           {...this.props.profileData}
@@ -40,18 +40,33 @@ class ProdukList extends Component {
             <h3>{this.props.tipeName}</h3>
             <hr />
             <div className="container-fluid">
-              <div className="row m-5">
-                {this.props.produkData.map((item) => (
-                  <>
-                    <Produks
-                      produkName={item.nama_produk}
-                      gambar={item.gambar}
-                      harga={item.harga}
-                      stock={item.stock}
-                    />
-                  </>
-                ))}
-              </div>
+              {this.props.isLoadingProduk ? (
+                <div className="d-flex justify-content-center">
+                  <div
+                    style={{ width: "200px", height: "200px", color: "gray" }}
+                    className="spinner-grow "
+                    role="status"
+                  >
+                    <span className="sr-only">Loading...</span>
+                  </div>
+                </div>
+              ) : (
+                <div className="row m-5">
+                  {this.props.produkData.map((item) => (
+                    <>
+                      <Produks
+                        {...this.props}
+                        user_id={0}
+                        produkName={item.nama_produk}
+                        gambar={item.gambar}
+                        harga={item.harga}
+                        stock={item.stock}
+                        produk_id={item.id}
+                      />
+                    </>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -65,8 +80,8 @@ const mapStateToProps = (state) => {
   return {
     produkData: state.produk.produkData,
     profileData: state.userProfile.profileData,
-    isLoading: state.produk.isLoading,
     tipeName: state.produk.tipeName,
+    isLoadingProduk: state.produk.isLoading,
   };
 };
 const mapDispatchToProps = {

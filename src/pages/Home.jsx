@@ -30,18 +30,32 @@ class Home extends Component {
         <hr />
         <h5 style={{ textAlign: "center" }}> Best Seller</h5>
         <div className="container-fluid">
-          <div className="row m-5">
-            {this.props.produkData.map((item, key) => (
-              <>
-                <Produks
-                  produkName={item.nama_produk}
-                  gambar={item.gambar}
-                  harga={item.harga}
-                  stock={item.stock}
-                />
-              </>
-            ))}
-          </div>
+          {this.props.isLoadingProduk ? (
+            <div className="d-flex justify-content-center">
+              <div
+                style={{ width: "200px", height: "200px", color: "gray" }}
+                className="spinner-grow "
+                role="status"
+              >
+                <span className="sr-only">Loading...</span>
+              </div>
+            </div>
+          ) : (
+            <div className="row m-5">
+              {this.props.produkData.map((item, key) => (
+                <>
+                  <Produks
+                    {...this.props}
+                    user_id={0}
+                    produkName={item.nama_produk}
+                    gambar={item.gambar}
+                    harga={item.harga}
+                    stock={item.stock}
+                  />
+                </>
+              ))}
+            </div>
+          )}
         </div>
         <Footer />
       </div>
@@ -53,7 +67,7 @@ const mapStateToProps = (state) => {
   return {
     produkData: state.produk.produkData,
     profileData: state.userProfile.profileData,
-    isLoading: state.produk.isLoading,
+    isLoadingProduk: state.produk.isLoading,
   };
 };
 const mapDispatchToProps = {
